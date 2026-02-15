@@ -17,11 +17,11 @@ st.write("Select input features to predict obesity level using different ML mode
 # 2️. Load pickled models
 # -----------------------------
 model_paths = {
-    "Logistic Regression": "model/logistic_model.pkl",
+    "Logistic Regression": "model/logistic_regression_model.pkl",
     "Decision Tree": "model/decision_tree_model.pkl",
     "K-Nearest Neighbors": "model/knn_model.pkl",
     "Naive Bayes": "model/naive_bayes_model.pkl",
-    "Random Forest": "model/random_forest_model.pkl",
+    "Random Forest": "model/rf_model.pkl",
     "XGBoost": "model/xgboost_pipeline.pkl"
 }
 
@@ -101,4 +101,5 @@ if st.button("Predict Obesity Level"):
         proba = model.predict_proba(input_df)
         st.subheader("Prediction Probabilities:")
         proba_df = pd.DataFrame(proba, columns=model.classes_)
+
         st.dataframe(proba_df)
